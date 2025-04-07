@@ -1,0 +1,4 @@
+LIBRARY discord
+VERSION 2.4
+EXPORTS
+discord_create

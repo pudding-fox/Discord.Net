@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Common.props" />
+  </ImportGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{8A0CA3FC-A00F-49C3-9B3A-214CB8CDFBFA}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;DISCORD_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <ModuleDefinitionFile>discord.def</ModuleDefinitionFile>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup Condition="'$(Platform)'=='Win32'">
+    <Library Include="..\lib\x86\discord_game_sdk.lib" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Platform)'=='x64'">
+    <Library Include="..\lib\x64\discord_game_sdk.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="discord.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="discord.h" />
+    <ClInclude Include="discord_game_sdk.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="discord.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
