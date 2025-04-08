@@ -7,6 +7,18 @@ namespace Discord.Net
     {
         const string DllName = "discord";
 
+        public static void Load()
+        {
+            Loader.Load("discord_game_sdk");
+            Loader.Load(DllName);
+        }
+
+        public static void Unload()
+        {
+            Loader.Free(DllName);
+            Loader.Free("discord_game_sdk");
+        }
+
         [DllImport(DllName)]
         static extern IntPtr discord_create(long client_id, CreateFlags flags);
 

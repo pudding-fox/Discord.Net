@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace ManagedBass.Memory
+namespace Discord.Net
 {
     public class Loader
     {
