@@ -42,7 +42,7 @@ extern "C" {
 #define DISCORD_VOICE_MANAGER_VERSION 1
 #define DISCORD_ACHIEVEMENT_MANAGER_VERSION 1
 
-enum EDiscordResult {
+typedef enum EDiscordResult {
     DiscordResult_Ok = 0,
     DiscordResult_ServiceUnavailable = 1,
     DiscordResult_InvalidVersion = 2,
@@ -88,12 +88,12 @@ enum EDiscordResult {
     DiscordResult_PurchaseError = 42,
     DiscordResult_TransactionAborted = 43,
     DiscordResult_DrawingInitFailed = 44,
-};
+} EDiscordResult;
 
-enum EDiscordCreateFlags {
+typedef enum EDiscordCreateFlags {
     DiscordCreateFlags_Default = 0,
     DiscordCreateFlags_NoRequireDiscord = 1,
-};
+} EDiscordCreateFlags;
 
 enum EDiscordLogLevel {
     DiscordLogLevel_Error = 1,
@@ -261,11 +261,11 @@ struct DiscordUser {
     bool bot;
 };
 
-struct DiscordOAuth2Token {
+typedef struct DiscordOAuth2Token {
     char access_token[128];
     char scopes[1024];
     DiscordTimestamp expires;
-};
+} DiscordOAuth2Token;
 
 struct DiscordImageHandle {
     enum EDiscordImageType type;
@@ -307,7 +307,7 @@ struct DiscordActivitySecrets {
     char spectate[128];
 };
 
-struct DiscordActivity {
+typedef struct DiscordActivity {
     enum EDiscordActivityType type;
     int64_t application_id;
     char name[128];
@@ -319,7 +319,7 @@ struct DiscordActivity {
     struct DiscordActivitySecrets secrets;
     bool instance;
     uint32_t supported_platforms;
-};
+} DiscordActivity;
 
 struct DiscordPresence {
     enum EDiscordStatus status;
@@ -415,13 +415,13 @@ struct IDiscordLobbySearchQuery {
 
 typedef void* IDiscordApplicationEvents;
 
-struct IDiscordApplicationManager {
+typedef struct IDiscordApplicationManager {
     void (DISCORD_API *validate_or_exit)(struct IDiscordApplicationManager* manager, void* callback_data, void (DISCORD_API *callback)(void* callback_data, enum EDiscordResult result));
     void (DISCORD_API *get_current_locale)(struct IDiscordApplicationManager* manager, DiscordLocale* locale);
     void (DISCORD_API *get_current_branch)(struct IDiscordApplicationManager* manager, DiscordBranch* branch);
     void (DISCORD_API *get_oauth2_token)(struct IDiscordApplicationManager* manager, void* callback_data, void (DISCORD_API *callback)(void* callback_data, enum EDiscordResult result, struct DiscordOAuth2Token* oauth2_token));
     void (DISCORD_API *get_ticket)(struct IDiscordApplicationManager* manager, void* callback_data, void (DISCORD_API *callback)(void* callback_data, enum EDiscordResult result, const char* data));
-};
+} IDiscordApplicationManager;
 
 struct IDiscordUserEvents {
     void (DISCORD_API *on_current_user_update)(void* event_data);
@@ -449,7 +449,7 @@ struct IDiscordActivityEvents {
     void (DISCORD_API *on_activity_invite)(void* event_data, enum EDiscordActivityActionType type, struct DiscordUser* user, struct DiscordActivity* activity);
 };
 
-struct IDiscordActivityManager {
+typedef struct IDiscordActivityManager {
     enum EDiscordResult (DISCORD_API *register_command)(struct IDiscordActivityManager* manager, const char* command);
     enum EDiscordResult (DISCORD_API *register_steam)(struct IDiscordActivityManager* manager, uint32_t steam_id);
     void (DISCORD_API *update_activity)(struct IDiscordActivityManager* manager, struct DiscordActivity* activity, void* callback_data, void (DISCORD_API *callback)(void* callback_data, enum EDiscordResult result));
@@ -457,7 +457,7 @@ struct IDiscordActivityManager {
     void (DISCORD_API *send_request_reply)(struct IDiscordActivityManager* manager, DiscordUserId user_id, enum EDiscordActivityJoinRequestReply reply, void* callback_data, void (DISCORD_API *callback)(void* callback_data, enum EDiscordResult result));
     void (DISCORD_API *send_invite)(struct IDiscordActivityManager* manager, DiscordUserId user_id, enum EDiscordActivityActionType type, const char* content, void* callback_data, void (DISCORD_API *callback)(void* callback_data, enum EDiscordResult result));
     void (DISCORD_API *accept_invite)(struct IDiscordActivityManager* manager, DiscordUserId user_id, void* callback_data, void (DISCORD_API *callback)(void* callback_data, enum EDiscordResult result));
-};
+} IDiscordActivityManager;
 
 struct IDiscordRelationshipEvents {
     void (DISCORD_API *on_refresh)(void* event_data);
@@ -667,7 +667,7 @@ typedef struct IDiscordCore {
     struct IDiscordAchievementManager* (DISCORD_API *get_achievement_manager)(struct IDiscordCore* core);
 } IDiscordCore;
 
-struct DiscordCreateParams {
+typedef struct DiscordCreateParams {
     DiscordClientId client_id;
     uint64_t flags;
     IDiscordCoreEvents* events;
@@ -696,7 +696,7 @@ struct DiscordCreateParams {
     DiscordVersion voice_version;
     struct IDiscordAchievementEvents* achievement_events;
     DiscordVersion achievement_version;
-};
+} DiscordCreateParams;
 
 #ifdef __cplusplus
 inline

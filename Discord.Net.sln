@@ -1,11 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discord.Net", "Discord.Net\Discord.Net.csproj", "{D943131F-22C4-2428-8A77-AD6CB9E77E48}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A0CA3FC-A00F-49C3-9B3A-214CB8CDFBFA} = {8A0CA3FC-A00F-49C3-9B3A-214CB8CDFBFA}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "discord", "discord\discord.vcxproj", "{8A0CA3FC-A00F-49C3-9B3A-214CB8CDFBFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6836543C-3067-44B7-AF7D-41C12A8B1B9E}"
+	ProjectSection(SolutionItems) = preProject
+		Common.props = Common.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discord.Net.Tests", "Discord.Net.Tests\Discord.Net.Tests.csproj", "{00DAA194-61CF-42DC-8D8F-1DA839302896}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D943131F-22C4-2428-8A77-AD6CB9E77E48} = {D943131F-22C4-2428-8A77-AD6CB9E77E48}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +54,18 @@ Global
 		{8A0CA3FC-A00F-49C3-9B3A-214CB8CDFBFA}.Release|x64.Build.0 = Release|x64
 		{8A0CA3FC-A00F-49C3-9B3A-214CB8CDFBFA}.Release|x86.ActiveCfg = Release|Win32
 		{8A0CA3FC-A00F-49C3-9B3A-214CB8CDFBFA}.Release|x86.Build.0 = Release|Win32
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Debug|x64.Build.0 = Debug|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Debug|x86.Build.0 = Debug|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Release|x64.ActiveCfg = Release|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Release|x64.Build.0 = Release|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Release|x86.ActiveCfg = Release|Any CPU
+		{00DAA194-61CF-42DC-8D8F-1DA839302896}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

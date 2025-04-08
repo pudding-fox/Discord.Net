@@ -10,14 +10,36 @@
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IncludeSymbols>true</IncludeSymbols>
+    <RepositoryUrl>https://github.com/aidan-g/BASS_MEMORY.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
   <ItemGroup>
-    <None Include="..\lib\x86\discord_game_sdk.dll" Link="x86\discord_game_sdk.dll">
+    <None Include="..\lib\x86\discord_game_sdk.dll" Link="x86\discord_game_sdk.dll" PackagePath="build\x86">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\lib\x86\discord.dll" Link="x86\discord.dll" PackagePath="build\x86">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\lib\x64\discord_game_sdk.dll" Link="x64\discord_game_sdk.dll">
+    <None Include="..\lib\x64\discord_game_sdk.dll" Link="x64\discord_game_sdk.dll" PackagePath="build\x64">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\lib\x64\discord.dll" Link="x64\discord.dll" PackagePath="build\x64">
+      <Pack>true</Pack>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -25,6 +47,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.168" Condition="'$(TargetFramework)' == 'net40'" />
     <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.21" Condition="'$(TargetFramework)' == 'net40'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Discord.Net.targets" PackagePath="build">
+      <pack>true</pack>
+    </None>
   </ItemGroup>
 
 </Project>
