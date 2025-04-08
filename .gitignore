@@ -121,9 +121,5 @@ runtime_env/
 source/.vs/
 
 #libs
-lib/x86/bass_asio_handler.*
-lib/x86/bass_wasapi_handler.*
-lib/x64/bass_asio_handler.*
-lib/x64/bass_wasapi_handler.*
-lib/x86/bitmap_utilities.*
-lib/x64/bitmap_utilities.*
+lib/x86/discord.*
+lib/x64/discord.*
