@@ -2,7 +2,7 @@
 using System;
 using System.Security.Principal;
 
-namespace Discord.Net.Tests
+namespace Discord.Sharp.Tests
 {
     [TestFixture]
     public class Tests
@@ -55,9 +55,12 @@ namespace Discord.Net.Tests
                     Assert.AreEqual(DiscordManager.Result.Ok, result);
                 }
                 {
-                    var token = default(DiscordManager.OAuth2Token);
+                    DiscordManager.FetchToken(discord);
                     var result = DiscordManager.WaitForResult(discord);
                     Assert.AreEqual(DiscordManager.Result.Ok, result);
+                }
+                {
+                    var token = default(DiscordManager.OAuth2Token);
                     DiscordManager.GetToken(discord, ref token);
                     Assert.IsNotEmpty(token.AccessToken);
                     Assert.IsNotEmpty(token.Scopes);
@@ -85,9 +88,12 @@ namespace Discord.Net.Tests
                     Assert.AreEqual(DiscordManager.Result.Ok, result);
                 }
                 {
-                    var token = default(DiscordManager.OAuth2Token);
+                    DiscordManager.FetchToken(discord);
                     var result = DiscordManager.WaitForResult(discord);
                     Assert.AreEqual(DiscordManager.Result.Ok, result);
+                }
+                {
+                    var token = default(DiscordManager.OAuth2Token);
                     DiscordManager.GetToken(discord, ref token);
                     Assert.IsNotEmpty(token.AccessToken);
                     Assert.IsNotEmpty(token.Scopes);

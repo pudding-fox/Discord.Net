@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Discord.Net.Tests": {
+    "Discord.Sharp.Tests": {
       "commandName": "Project",
       "nativeDebugging": true
     }

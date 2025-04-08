@@ -34,13 +34,13 @@ DISCORD* WINAPI discord_create(DiscordClientId client_id, EDiscordCreateFlags fl
 	if (!discord) {
 		return NULL;
 	}
-	DiscordCreateParams params;
+	DiscordCreateParams params = { 0 };
 	params.client_id = client_id;
 	params.flags = flags;
-	params.event_data = discord;
+	//params.event_data = discord;
 	discord->result = DiscordCreate(DISCORD_VERSION, &params, &discord->core);
 	if (discord->core) {
-		discord->core->set_log_hook(discord->core, DiscordLogLevel_Debug, NULL, &log_hook);
+		discord->core->set_log_hook(discord->core, DiscordLogLevel_Debug, NULL, log_hook);
 	}
 	return discord;
 }
@@ -105,6 +105,9 @@ void WINAPI discord_run_callbacks(DISCORD* discord) {
 }
 
 void WINAPI discord_free(DISCORD* discord) {
+	if (discord->core) {
+		discord->core->destroy(discord->core);
+	}
 	if (discord->token) {
 		free(discord->token);
 	}

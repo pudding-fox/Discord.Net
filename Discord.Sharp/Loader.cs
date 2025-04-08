@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace Discord.Net
+namespace Discord.Sharp
 {
     public class Loader
     {

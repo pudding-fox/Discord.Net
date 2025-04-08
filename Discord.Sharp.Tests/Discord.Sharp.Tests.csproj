@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <TargetFrameworks>net40;net48</TargetFrameworks>
-    <AssemblyName>Discord.Net.Tests</AssemblyName>
+    <AssemblyName>Discord.Sharp.Tests</AssemblyName>
     <OutputPath>..\distribution\</OutputPath>
     <Version>0.0.1</Version>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Discord.Net" Version="0.0.1" />
+    <PackageReference Include="Discord.Sharp" Version="0.0.1" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
       <PrivateAssets>all</PrivateAssets>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Discord.Net\Discord.Net.csproj" />
+    <ProjectReference Include="..\Discord.Sharp\Discord.Sharp.csproj" />
   </ItemGroup>
 
 </Project>

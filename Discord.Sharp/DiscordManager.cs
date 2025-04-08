@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace Discord.Net
+namespace Discord.Sharp
 {
     public class DiscordManager
     {
