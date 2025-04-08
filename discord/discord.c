@@ -59,6 +59,7 @@ void DISCORD_API get_oauth2_token_callback(void* data, EDiscordResult result, Di
 }
 
 void WINAPI discord_fetch_token(DISCORD* discord) {
+	discord->result = DiscordResult_Pending;
 	IDiscordApplicationManager* manager = discord->core->get_application_manager(discord->core);
 	manager->get_oauth2_token(manager, discord, get_oauth2_token_callback);
 }
@@ -83,6 +84,7 @@ void DISCORD_API update_activity_callback(void* data, enum EDiscordResult result
 }
 
 void WINAPI discord_update_activity(DISCORD* discord) {
+	discord->result = DiscordResult_Pending;
 	IDiscordActivityManager* manager = discord->core->get_activity_manager(discord->core);
 	manager->update_activity(manager, discord->activity, discord, update_activity_callback);
 }
@@ -93,8 +95,13 @@ void DISCORD_API clear_activity_callback(void* data, enum EDiscordResult result)
 }
 
 void WINAPI discord_clear_activity(DISCORD* discord) {
+	discord->result = DiscordResult_Pending;
 	IDiscordActivityManager* manager = discord->core->get_activity_manager(discord->core);
 	manager->clear_activity(manager, discord, clear_activity_callback);
+}
+
+void WINAPI discord_run_callbacks(DISCORD* discord) {
+	discord->core->run_callbacks(discord->core);
 }
 
 void WINAPI discord_free(DISCORD* discord) {

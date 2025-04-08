@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net40;net48</TargetFrameworks>
@@ -6,7 +6,7 @@
     <OutputPath>..\distribution\</OutputPath>
     <SkipEnsureBindingRedirects>true</SkipEnsureBindingRedirects>
     <SkipValidatePackageReferences>true</SkipValidatePackageReferences>
-    <AssemblyVersion>4.0.1.0</AssemblyVersion>
+    <Version>0.0.2</Version>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 

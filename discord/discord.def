@@ -8,4 +8,5 @@ discord_get_token
 discord_set_activity
 discord_update_activity
 discord_clear_activity
+discord_run_callbacks
 discord_free

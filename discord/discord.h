@@ -22,4 +22,6 @@ void WINAPI discord_update_activity(DISCORD* discord);
 
 void WINAPI discord_clear_activity(DISCORD* discord);
 
+void WINAPI discord_run_callbacks(DISCORD* discord);
+
 void WINAPI discord_free(DISCORD* discord);

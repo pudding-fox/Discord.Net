@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Discord.Net
 {
@@ -33,6 +34,69 @@ namespace Discord.Net
         public static Result GetResult(IntPtr discord)
         {
             return discord_get_result(discord);
+        }
+
+        public static Result WaitForResult(IntPtr discord, int timeout = 10000, int interval = 100)
+        {
+            for (var attempt = 0; attempt <= timeout; attempt += interval)
+            {
+                RunCallbacks(discord);
+                var result = GetResult(discord);
+                if (result != Result.Pending)
+                {
+                    return result;
+                }
+                Thread.Sleep(interval);
+            }
+            throw new TimeoutException("Timed out waiting for a result.");
+        }
+
+        [DllImport(DllName)]
+        static extern void discord_fetch_token(IntPtr discord);
+
+        public static void FetchToken(IntPtr discord)
+        {
+            discord_fetch_token(discord);
+        }
+
+        [DllImport(DllName)]
+        static extern void discord_get_token(IntPtr discord, ref OAuth2Token token);
+
+        public static void GetToken(IntPtr discord, ref OAuth2Token token)
+        {
+            discord_get_token(discord, ref token);
+        }
+
+        [DllImport(DllName)]
+        static extern void discord_set_activity(IntPtr discord, ref Activity activity);
+
+        public static void SetActivity(IntPtr discord, ref Activity activity)
+        {
+            discord_set_activity(discord, ref activity);
+        }
+
+        [DllImport(DllName)]
+        static extern void discord_update_activity(IntPtr discord);
+
+        public static void UpdateActivity(IntPtr discord)
+        {
+            discord_update_activity(discord);
+        }
+
+        [DllImport(DllName)]
+        static extern void discord_clear_activity(IntPtr discord);
+
+        public static void ClearActivity(IntPtr discord)
+        {
+            discord_clear_activity(discord);
+        }
+
+        [DllImport(DllName)]
+        static extern void discord_run_callbacks(IntPtr discord);
+
+        public static void RunCallbacks(IntPtr discord)
+        {
+            discord_run_callbacks(discord);
         }
 
         [DllImport(DllName)]
@@ -90,6 +154,7 @@ namespace Discord.Net
             PurchaseError = 42,
             TransactionAborted = 43,
             DrawingInitFailed = 44,
+            Pending = 45
         }
 
         public enum CreateFlags

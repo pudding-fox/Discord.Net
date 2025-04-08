@@ -88,6 +88,7 @@ typedef enum EDiscordResult {
     DiscordResult_PurchaseError = 42,
     DiscordResult_TransactionAborted = 43,
     DiscordResult_DrawingInitFailed = 44,
+    DiscordResult_Pending = 45
 } EDiscordResult;
 
 typedef enum EDiscordCreateFlags {
