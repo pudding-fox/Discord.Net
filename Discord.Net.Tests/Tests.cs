@@ -28,7 +28,15 @@ namespace Discord.Net.Tests
             {
                 Assert.Fail();
             }
-            DiscordManager.Free(discord);
+            try
+            {
+                var result = DiscordManager.GetResult(discord);
+                Assert.AreEqual(DiscordManager.Result.Ok, result);
+            }
+            finally
+            {
+                DiscordManager.Free(discord);
+            }
         }
     }
 }

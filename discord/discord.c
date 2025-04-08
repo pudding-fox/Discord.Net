@@ -38,20 +38,21 @@ DISCORD* WINAPI discord_create(DiscordClientId client_id, EDiscordCreateFlags fl
 	params.client_id = client_id;
 	params.flags = flags;
 	params.event_data = discord;
-	EDiscordResult result = DiscordCreate(DISCORD_VERSION, &params, &discord->core);
+	discord->result = DiscordCreate(DISCORD_VERSION, &params, &discord->core);
 	if (discord->core) {
 		discord->core->set_log_hook(discord->core, DiscordLogLevel_Debug, NULL, &log_hook);
-	}
-	if (result) {
-		discord_free(discord);
-		discord = NULL;
 	}
 	return discord;
 }
 
+EDiscordResult WINAPI discord_get_result(DISCORD* discord) {
+	return discord->result;
+}
+
 void DISCORD_API get_oauth2_token_callback(void* data, EDiscordResult result, DiscordOAuth2Token* token) {
 	DISCORD* discord = (DISCORD*)data;
-	if (result) {
+	discord->result = result;
+	if (!token) {
 		return;
 	}
 	memcpy(discord->token, token, sizeof(DiscordOAuth2Token));
@@ -77,7 +78,8 @@ void WINAPI discord_set_activity(DISCORD* discord, DiscordActivity* activity) {
 }
 
 void DISCORD_API update_activity_callback(void* data, enum EDiscordResult result) {
-	//Nothing to do.
+	DISCORD* discord = (DISCORD*)data;
+	discord->result = result;
 }
 
 void WINAPI discord_update_activity(DISCORD* discord) {
@@ -86,7 +88,8 @@ void WINAPI discord_update_activity(DISCORD* discord) {
 }
 
 void DISCORD_API clear_activity_callback(void* data, enum EDiscordResult result) {
-	//Nothing to do.
+	DISCORD* discord = (DISCORD*)data;
+	discord->result = result;
 }
 
 void WINAPI discord_clear_activity(DISCORD* discord) {

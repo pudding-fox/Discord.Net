@@ -5,9 +5,12 @@ typedef struct DISCORD {
 	IDiscordCore* core;
 	DiscordOAuth2Token* token;
 	DiscordActivity* activity;
+	EDiscordResult result;
 } DISCORD;
 
 DISCORD* WINAPI discord_create(DiscordClientId client_id, EDiscordCreateFlags flags);
+
+EDiscordResult WINAPI discord_get_result(DISCORD* discord);
 
 void WINAPI discord_fetch_token(DISCORD* discord);
 

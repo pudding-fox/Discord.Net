@@ -2,6 +2,7 @@ LIBRARY discord
 VERSION 2.4
 EXPORTS
 discord_create
+discord_get_result
 discord_fetch_token
 discord_get_token
 discord_set_activity
