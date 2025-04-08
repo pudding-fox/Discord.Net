@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net40;net461</TargetFrameworks>
-    <AssemblyName>ManagedBass.Memory.Tests</AssemblyName>
+    <AssemblyName>Discord.Net.Tests</AssemblyName>
     <OutputPath>..\distribution\</OutputPath>
     <Version>0.0.1</Version>
     <Platforms>AnyCPU</Platforms>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ManagedBass.Memory\ManagedBass.Memory.csproj" />
+    <ProjectReference Include="..\Discord.Net\Discord.Net.csproj" />
   </ItemGroup>
 
 </Project>
