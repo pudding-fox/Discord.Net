@@ -1,4 +1,4 @@
-#A really simple .net wrapper for discord-rpc.dll
+## A really simple .net wrapper for discord-rpc.dll
 
 See the tests.
 
