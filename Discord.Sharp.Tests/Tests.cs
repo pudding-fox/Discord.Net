@@ -43,5 +43,19 @@ namespace Discord.Sharp.Tests
                 DiscordManager.Free();
             }
         }
+
+        [Test]
+        public void ClearPresence()
+        {
+            DiscordManager.Create(CLIENT_ID);
+            try
+            {
+                DiscordManager.ClearPresence();
+            }
+            finally
+            {
+                DiscordManager.Free();
+            }
+        }
     }
 }

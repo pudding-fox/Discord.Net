@@ -4,7 +4,6 @@
 #include <stdio.h>
 #endif
 
-
 void WINAPI discord_create(const char* applicationId) {
 	DiscordEventHandlers handlers = { 0 };
 	Discord_Initialize(applicationId, &handlers, 1, NULL);
@@ -19,6 +18,10 @@ void WINAPI discord_update_presence(const char* state, const char* details) {
 	presence.state = state;
 	presence.details = details;
 	Discord_UpdatePresence(&presence);
+}
+
+void WINAPI discord_clear_presence() {
+	Discord_ClearPresence();
 }
 
 void WINAPI discord_free() {

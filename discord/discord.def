@@ -3,5 +3,6 @@ VERSION 2.4
 EXPORTS
 discord_create
 discord_update_presence
+discord_clear_presence
 discord_run_callbacks
 discord_free

@@ -36,6 +36,14 @@ namespace Discord.Sharp
         }
 
         [DllImport(DllName)]
+        static extern void discord_clear_presence();
+
+        public static void ClearPresence()
+        {
+            discord_clear_presence();
+        }
+
+        [DllImport(DllName)]
         static extern void discord_run_callbacks();
 
         public static void RunCallbacks()

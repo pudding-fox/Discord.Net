@@ -4,6 +4,10 @@
 
 void WINAPI discord_create(const char* applicationId);
 
+void WINAPI discord_update_presence();
+
+void WINAPI discord_clear_presence();
+
 void WINAPI discord_run_callbacks();
 
 void WINAPI discord_free();
