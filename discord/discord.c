@@ -34,7 +34,8 @@ DISCORD* WINAPI discord_create(DiscordClientId client_id, EDiscordCreateFlags fl
 	if (!discord) {
 		return NULL;
 	}
-	DiscordCreateParams params = { 0 };
+	DiscordCreateParams params;
+	DiscordCreateParamsSetDefault(&params);
 	params.client_id = client_id;
 	params.flags = flags;
 	//params.event_data = discord;
