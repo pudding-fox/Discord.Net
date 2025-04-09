@@ -22,10 +22,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup Condition="'$(Platform)'=='Win32'">
-    <Library Include="..\lib\x86\discord_game_sdk.lib" />
+    <Library Include="..\lib\x86\discord-rpc.lib" />
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='x64'">
-    <Library Include="..\lib\x64\discord_game_sdk.lib" />
+    <Library Include="..\lib\x64\discord-rpc.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="discord.def" />

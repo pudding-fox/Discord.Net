@@ -16,10 +16,24 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\x64\msvcrt.lib" />
+    <Library Include="..\lib\x64\discord-rpc.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="discord.def">
       <Filter>Source Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="discord.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="discord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="discord_game_sdk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

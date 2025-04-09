@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\lib\x86\discord_game_sdk.dll" Link="x86\discord_game_sdk.dll" PackagePath="build\x86">
+    <None Include="..\lib\x86\discord-rpc.dll" Link="x86\discord-rpc.dll" PackagePath="build\x86">
       <Pack>true</Pack>
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\lib\x64\discord_game_sdk.dll" Link="x64\discord_game_sdk.dll" PackagePath="build\x64">
+    <None Include="..\lib\x64\discord-rpc.dll" Link="x64\discord-rpc.dll" PackagePath="build\x64">
       <Pack>true</Pack>
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
