@@ -35,7 +35,7 @@ namespace Discord.Sharp.Tests
             {
                 var state = Guid.NewGuid().ToString();
                 var details = Guid.NewGuid().ToString();
-                DiscordManager.UpdatePresence(state, details);
+                DiscordManager.UpdatePresence(state, details, null, null, null, null);
                 DiscordManager.RunCallbacks();
             }
             finally

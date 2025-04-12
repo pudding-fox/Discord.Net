@@ -30,7 +30,7 @@ namespace Discord.Sharp
         [DllImport(DllName)]
         static extern void discord_update_presence(string state, string details);
 
-        public static void UpdatePresence(string state, string details)
+        public static void UpdatePresence(string state, string details, string smallImageText, string smallImageKey, string largeImageText, string largeImageKey)
         {
             discord_update_presence(state, details);
         }
