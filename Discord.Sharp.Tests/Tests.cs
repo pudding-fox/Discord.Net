@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Threading.Tasks;
 
 namespace Discord.Sharp.Tests
 {
